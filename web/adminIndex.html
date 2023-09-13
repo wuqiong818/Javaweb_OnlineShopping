@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理员主页</title>
+    <link rel="stylesheet" href="CSS/base.css">
+    <link rel="stylesheet" href="CSS/adminIndex.css">
+    <base href="http://localhost:8080/OnlineShopping/">
+</head>
+<body>
+<div class="tab-title">
+    <li id="page1Btn">网站基本信息</li>
+    <li id="page2Btn">用户管理</li>
+    <li id="page3Btn">商品管理</li>
+</div>
+
+<main class="tab-container">
+    <div class="tab-content" id="page1">
+        <h1>网站基本信息</h1>
+        <h1>技术构成</h1>
+        <p>用户端:后端servlet,前端使用jsp+半套ajax</p>
+        <p>管理员端:后端servlet,前端使用html+ajax</p>
+        <p>数据的存储:mysql中的javaweb数据库</p>
+        <h1>当前网站登录的在线人数</h1>
+        <h1>数据库中已经注册的用户:<p>23</p></h1>
+    </div>
+    <div class="tab-content active" id="page2">
+        <!--这里对用户的管理仅仅涉及是否对用户表进行改和删,
+        改是改变用户的状态，进行禁用，删是直接对用户进行删除-->
+        <h1>用户管理</h1>
+        <div class="userContainer">
+            <div class="userItem_title">
+                <li class="headPortrait">头像</li>
+                <li class="username">用户名</li>
+                <li class="telephone">手机号码</li>
+                <li class="address">联系地址</li>
+                <li class="userStatus">用户状态</li>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-content" id="page3">
+        <h1>商品管理</h1>
+        <p>这是商品管理的内容。</p>
+    </div>
+</main>
+
+
+<script>
+    var page1Btn = document.getElementById("page1Btn");
+    var page2Btn = document.getElementById("page2Btn");
+    var page3Btn = document.getElementById("page3Btn");
+    var page1 = document.getElementById("page1");
+    var page2 = document.getElementById("page2");
+    var page3 = document.getElementById("page3");
+
+    page1Btn.addEventListener("click", function () {
+        page1.classList.add("active");
+        page2.classList.remove("active");
+        page3.classList.remove("active");
+    });
+
+    page2Btn.addEventListener("click", function () {
+        page2.classList.add("active");
+        page1.classList.remove("active");
+        page3.classList.remove("active");
+    });
+
+    window.addEventListener("load", function () {
+        var userContainer = document.querySelector(".userContainer");
+        var xhr = new XMLHttpRequest();
+        var responseJson;
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                responseJson = JSON.parse(this.responseText);
+                console.log(responseJson);
+                responseJson.forEach((item) => {
+                    var button;
+                    var userStatus = parseInt(item.userStatus);
+                    if (userStatus === 1) {
+                        button = '<button class="forbidden show">禁用</button>\n' +
+                            '<button class="normal disappear">正常</button>';
+                    } else {
+                        button = '<button class="forbidden disappear">禁用</button>\n' +
+                            '<button class="normal show" >正常</button>';
+                    }
+                    userContainer.insertAdjacentHTML(`beforeend`, `
+                     <div class="userItem" id="` + item.id + `">
+                    <li class="headPortrait"><img src="user_upload/images/` + item.profilePath + `" alt="未上传"></li>
+                    <li class="username">` + item.username + `</li>
+                    <li class="telephone">` + item.telephone + `</li>
+                    <li class="address">` + item.address + `</li>
+                    <li class="userStatus">
+                       ` + button + `
+                        </li>
+                    </div>
+                    `);
+                });
+            }
+        }
+        xhr.open("GET", "get/usersInfo", false);
+        xhr.send();
+        then2(responseJson);
+    });
+
+
+    function then2(responseJson) {//这里的尝试失败了，不在使用生成的方式，而是采用显示与隐藏的方式，像tab栏一样;
+        var buttons = document.querySelectorAll(".userItem .userStatus");
+        buttons.forEach((button) => {
+            var forbiddenBut = button.querySelector(".forbidden");
+            var normalBut = button.querySelector(".normal")
+            //现在以后一个按钮，如果可以点击禁用，这说明现在用户的状态是正常的；
+            forbiddenBut.addEventListener('click', function () {
+                forbiddenBut.classList.add("disappear");
+                normalBut.classList.remove("disappear");
+                normalBut.classList.add("show");
+                //用户点击事件之后，在这里向后端发送请求,userStatus为0表示禁用，为1表示正常;
+                //向后端发送的数据为用户的id和用户的修改的状态;
+                var id = forbiddenBut.parentElement.parentElement.id;
+                var userStatus = 0;
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+
+                    }
+                }
+                var parameter = "userStatus=" + userStatus + "&userId=" + id;
+                xhr.open("POST", "change/userStatus", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.send(parameter);
+            })
+            normalBut.addEventListener('click', function () {
+                normalBut.classList.add("disappear");
+                forbiddenBut.classList.remove("disappear");
+                forbiddenBut.classList.add("show");
+                var id = normalBut.parentElement.parentElement.id;
+                var userStatus = 1;
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+
+                    }
+                }
+                var parameter = "userStatus=" + userStatus + "&userId=" + id;
+                xhr.open("POST", "change/userStatus", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+                xhr.send(parameter);
+            })
+        });
+    }
+
+
+    page3Btn.addEventListener("click", function () {
+        page1.classList.remove("active");
+        page2.classList.remove("active");
+        page3.classList.add("active");
+    });
+    //     用户管理功能的书写,获取数据之后写then2();
+    /*思路：
+    * 1.通过ajax向后端发送请求，获取数据库中所有用户的数据，并渲染到页面上
+    * 2.之后对相关的操作进行事件的绑定，每一次操作，都涉及到用户数据的更改;
+    * */
+
+
+</script>
+</body>
+</html>

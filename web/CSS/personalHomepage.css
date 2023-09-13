@@ -1,0 +1,211 @@
+body{
+    background-color: pink;
+    width: 1556px;
+    margin: 0 auto;
+
+}
+.header{
+    position: relative;
+    height: 100px;
+    border-bottom: 3px solid #ff6700;
+}
+.logo{
+    width: 56px;
+    height: 56px;
+    margin-right: 20px;
+    background: url(//cdn.cnbj1.fds.api.mi-img.com/mi.com-assets/shop/img/logo-mi2.png) no-repeat;
+    background-size: 56px;
+    position: absolute;
+    top: 17px;
+    left: 30px;
+    font-size:0px;
+}
+.header-title{
+    position: absolute;
+    top: 22px;
+    left: 115px;
+    font-size: 20px;
+}
+
+main{
+    position: relative;
+}
+
+
+
+
+form{
+    position: relative;
+}
+.displayImage{
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+}
+.tab_content {
+    padding-top: 35px;
+    float: left;
+    display: none;
+}
+
+.active {
+    display: block;
+}
+.tab_title{
+    float: left;
+    width: 150px;
+    text-align: center;
+    font-size: 18px;
+    padding-top: 25px;
+}
+.tab_title li{
+    height: 40px;
+    line-height: 40px;
+}
+#userInfo{
+    padding-left: 25px;
+}
+
+
+#userInfo,
+#purchaseHistory,
+#myGoods,
+#myOrder{
+    position: absolute;
+    top: -8px;
+    left: 150px;
+}
+
+
+/*购买记录部分的样式*/
+#purchaseHistory{
+    overflow: hidden;
+}
+
+.history_item {
+    float: left;
+    height: 335px;
+    width: 250px;
+    background-color: #f5f5f5;
+    border: 1px solid #f5f5f5;
+    margin-left: 15px;
+    margin-top: 15px;
+    font-size: 16px;
+    position: relative;
+}
+.history_item li{
+    margin-top: 3px;
+}
+.history_item .orderId{
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+.history_item .name{
+    !important;
+    margin-top: 6px;
+}
+.history_item .count{
+    position: absolute;
+    bottom:5px;
+    right: 10px;
+}
+/*------------------------------*/
+/*我的商品部分的样式*/
+
+#myGoods .cart_title {
+    height: 70px;
+    width: 1200px;
+    line-height: 70px;
+    padding-right: 26px;
+    padding-left: 40px;
+    font-size: 16px;
+    background-color: #ffffff;
+}
+
+#myGoods .myGoods_item {
+    height: 117px;
+    padding: 15px 26px 15px 40px;
+    border-top: 1px solid #e0e0e0;
+}
+
+#myGoods .cart_title li,
+#myGoods .myGoods_item li {
+    float: left;
+
+}
+#myGoods .itemImg {
+    width: 120px;
+}
+#myGoods .itemImg img{
+    width: 80px;
+    height: 80px;
+}
+
+#myGoods .name {
+    width: 380px;
+}
+
+#myGoods .price {
+    width: 140px;
+}
+
+#myGoods .amount {
+    text-align: center;
+    width: 150px;
+}
+
+#myGoods .itemAmount {
+    position: relative;
+    top: 8px;
+    border: 1px solid #e0e0e0;
+    background-color: #ffffff;
+    height: 38px;
+    margin: 10px 0px;
+    padding: 0px 10px;
+}
+
+
+#myGoods .amount_count {
+    width: 145px;
+    text-align: center;
+
+}
+#myGoods .operate {
+    float: left;
+    margin-left: 230px;
+    width: 90px;
+    cursor: pointer;
+    position: relative;
+}
+.shelf{
+    position: absolute;
+    top:-10px;
+    left: 0px;
+    float: left;
+}
+.update_delete{
+    position: absolute;
+    bottom: -95px;
+    left: 0px;
+}
+
+
+#myGoods .cancel{
+    margin-left: 7px;
+}
+
+/*我的订单样式*/
+.expressInformation{
+    margin-top: 7px;
+}
+.receiverName{
+
+}
+.telephone{
+
+}
+.address{
+
+}
+

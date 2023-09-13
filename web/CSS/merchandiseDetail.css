@@ -1,0 +1,93 @@
+header{
+    display: block;
+    height: 60px;
+    width: 1226px;
+    margin: 0 auto;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.left {
+    position: relative;
+    width: 540px;
+    height: 600px;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+.left .exhibition{
+    width: 355px;
+    height: 550px;
+    overflow: hidden;
+    position: absolute;
+    left: 55px;
+    top: 0px;
+}
+.container{
+    width: 3000px;
+    position: absolute;
+    left: -40px;
+}
+.container li{
+    float: left;
+}
+.container li img{
+    width: 355px;
+    height: 550px;
+
+}
+.carousel-button {
+    cursor: pointer;
+    /* 添加其他按钮样式 */
+}
+/* 模拟禁用状态的样式 */
+.carousel-button.disabled {
+    opacity: 0.5; /* 降低按钮透明度，看起来像被禁用 */
+    pointer-events: none; /* 禁用鼠标事件，使按钮不响应点击 */
+}
+
+.right {
+    width: 600px;
+    background-color: #f5f5f5;
+}
+.button_left,
+.button_right{
+    width: 40px;
+    height: 70px;
+}
+.button_left{
+    position: absolute;
+    left: 20px;
+    top: 240px;
+    overflow: hidden;
+}
+.button_left img{
+    position: absolute;
+    left: -70px;
+    top: 20px;
+    width: 130px;
+    height: auto;
+}
+.button_right{
+    position: absolute;
+    right: 30px;
+    top: 240px;
+    overflow: hidden;
+}
+.button_right img{
+    position: absolute;
+    left: -100px;
+    top: 20px;
+    width: 130px;
+    height: auto;
+}
+.page{
+    position:absolute;
+    bottom: 13px;
+    left: 232px;
+}
+.right{
+    padding-left:15px;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/adminLogin.css">
+    <title>Document</title>
+    <base href="http://localhost:8080/OnlineShopping/">
+</head>
+<body>
+<form action="admin/check" method="post" class="login">
+    <p>Login</p>
+    <div class="inputArea">
+        <input type="text" name="adminName" placeholder="用户名" required>
+        <input type="password" name="password" placeholder="密码" required>
+        <input type="verificationCode" name="verificationCode" placeholder="后台验证码" required>
+        <input type="submit" class="btn" value="登  录">
+    </div>
+</form>
+</body>
+<script>
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+        }
+    }
+    xhr.open("GET", "generate/verificationCode", true);
+    xhr.send();
+</script>
+
+</html>

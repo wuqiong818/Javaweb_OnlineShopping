@@ -1,0 +1,256 @@
+@font-face {
+    font-family: 'icomoon';
+    src: url("../fonts/icomoon.eot?r6fsz1");
+    src: url('../fonts/icomoon.eot?r6fsz1#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?r6fsz1') format('truetype'),
+    url('../fonts/icomoon.woff?r6fsz1') format('woff'),
+    url('../fonts/icomoon.svg?r6fsz1#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+
+/*头部的CSS样式*/
+.w {
+    width: 1226px;
+    margin: 0 auto;
+}
+
+.header .w {
+    position: relative;
+    height: 88px;
+    margin-top: 12px;
+}
+
+.header .w .logo {
+    position: absolute;
+    top: 10px;
+    left: -8px;
+    height: 56px;
+}
+
+.header .w .logo a {
+    display: block;
+    width: 56px;
+    height: 56px;
+    line-height: 56px;
+    font-size: 0px;
+    background: url("../images/logo-mi2.png") no-repeat;
+    background-size: 56px;
+}
+
+.header .w .header_nav {
+    position: absolute;
+    top: 0px;
+    left: 220px;
+}
+
+.header .w .header_nav li {
+    float: left;
+}
+
+.header .w .header_nav li a {
+    display: block;
+    font-size: 16px;
+    padding: 26px 2px 38px 10px;
+}
+
+.header .w .header_nav li a:hover {
+    color: #ff6700;
+}
+
+.header .w .search {
+    position: absolute;
+    top: 12px;
+    right: 7px;
+}
+
+.header .w .search:hover .input_sbumit {
+    border: 1px solid #b0b0b0;
+    border-left: 0px;
+}
+
+.header .w .search:hover .input_search {
+    border: 1px solid #b0b0b0;
+}
+
+.header .w .search .input_search {
+    float: left;
+    width: 245px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 14px;
+    border: 1px solid #e0e0e0;
+    border-right: 0px;
+    padding: 0 10px;
+}
+
+.header .w .search .input_sbumit {
+    float: left;
+    width: 52px;
+    height: 50px;
+    font-family: 'icomoon';
+    color: black;
+    font-size: 18px;
+    font-weight: 700;
+    background: #ffff;
+    border: 1px solid #e0e0e0;
+}
+
+.header .w .search .input_sbumit:hover {
+    color: white;
+    background-color: #ff6700;
+}
+
+
+/*展示部分的样式*/
+.exhibition {
+    background-color: #f5f5f5;
+}
+
+.exhibition .w {
+    position: relative;
+    height: 686px;
+}
+
+.exhibition_header h2 {
+    float: left;
+    font-weight: 200;
+    font-size: 22px;
+    color: #333333;
+    margin-top: 20px;
+}
+
+.exhibition_tab {
+    float: right;
+}
+
+.tab_title {
+    float: left;
+    margin-top: 25px;
+    margin-right: 20px;
+    font-size: 16px;
+    height: 500px;
+}
+
+.tab_title .tab_container .tab_content {
+    position: absolute;
+    top: 72px;
+    left: 0px;
+    width: 1226px;
+    height: 614px;
+}
+
+.merchandiseItem{
+    float: left;
+    margin-right: 14px;
+    margin-bottom: 13px;
+    text-align: center;
+    background-color: #fff;
+    transition: all .25s;
+    width: 234px;
+    height: 320px;
+}
+
+.tab_title .tab_container .tab_content .merchandiseItem li {
+    width: 234px;
+    height: 285px;
+}
+
+.tab_title .tab_container .tab_content li:hover {
+    cursor: pointer;
+}
+
+.tab_title .tab_container .tab_content .merchandiseItem:nth-child(5n) {
+    margin-right: 0px;
+}
+
+.tab_title .tab_container .tab_content li img {
+    margin: 25px 0px 10px 0px;
+    width: 160px;
+    height: 160px;
+}
+
+/* 图片中的文字部分的样式 */
+.tab_title .tab_container .tab_content li h3 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #333333;
+}
+
+.tab_title .tab_container .tab_content li p {
+    white-space: nowrap; /* 不允许文本换行 */
+    overflow: hidden; /* 超出部分隐藏 */
+    text-overflow: ellipsis; /* 使用省略号代替超出部分 */
+    width: 210px; /* 设置 p 标签的宽度，根据需要调整 */
+    margin: 7px 10px 0px;
+    font-size: 14px;
+    color: #b1b1b1;
+}
+
+.tab_title .tab_container .tab_content li span {
+    display: block;
+    margin-top: 6px;
+    font-size: 16px;
+    color: #ff6700;
+}
+
+.tab_title .tab_container .tab_content li span del {
+    font-size: 15px;
+    color: #b1b1b1;
+}
+
+/* tab栏切换功能的实现 */
+.tab_title:hover .tab_content {
+    z-index: 3;
+}
+
+.tab_title .tab_container .tab_content .merchandiseItem:hover {
+    box-shadow: 0 8px 16px rgb(0 0 0 / 18%);
+    transform: translateY(-5px);
+}
+
+/*动态搜索的下拉框 */
+.searchSuggestions {
+    position: absolute;
+    width: 245px;
+    top: 50px;
+    left: 0px;
+    z-index: 20;
+    background-color: #ffffff;
+    display: none;
+    border: 1px solid #ff6700;
+    border-top: 0px;
+    border-bottom: 0px;
+}
+
+.searchSuggestions li {
+    float: left;
+    padding-left: 13px;
+    height: 30px;
+    width: 243px;
+    line-height: 30px;
+    font-size: 14px;
+}
+
+.searchSuggestions li:last-child {
+    border-bottom: 1px solid #ff6700;
+}
+
+.searchSuggestions li:hover {
+    background-color: #fafafa;
+}
+
+footer {
+    height: 300px;
+    background-color: #ffffff;
+}
+
+.merchandisePurchase,
+.addShoppingCart {
+    cursor: pointer;
+    z-index: 100;
+}
+
+
